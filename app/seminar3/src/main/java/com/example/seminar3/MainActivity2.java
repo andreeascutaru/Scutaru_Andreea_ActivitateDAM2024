@@ -1,8 +1,8 @@
-package com.example.scutaru_andreea_seminardam;
+package com.example.seminar3;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,11 +22,12 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent it = getIntent();
+        String mesaj = it.getStringExtra("text");
+        int nr1 = it.getIntExtra("nr1", 1);
+        int nr2 = it.getIntExtra("nr2", 2);
+        Toast.makeText(this, mesaj+" "+ (nr1+nr2), Toast.LENGTH_LONG).show();
     }
 
-    public void Deschide(View view)
-    {
-        Intent it = new Intent(getApplicationContext(), MainActivity3.class);
-        startActivity(it);
-    }
+
 }
