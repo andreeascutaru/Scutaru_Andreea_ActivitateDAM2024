@@ -1,8 +1,9 @@
 package com.example.seminar4;
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 import java.util.ArrayList;
 
-public class Automobil implements Serializable{
+public class Automobil implements Parcelable {
     private String marca;
     private String model;
     private int anFabricatie;
@@ -10,7 +11,10 @@ public class Automobil implements Serializable{
     private String culoare;
     private String stare;
     private ArrayList<String> dotari;
-    public Automobil(String marca, String model, int anFabricatie, int kilometraj, String culoare, String stare, ArrayList<String> dotari) {
+    private String sursaEnergie;
+    private String transimisie;
+    private float conditie;
+    public Automobil(String marca, String model, int anFabricatie, int kilometraj, String culoare, String stare, ArrayList<String> dotari, String sursaEnergie, String transimisie, float conditie) {
         this.marca = marca;
         this.model = model;
         this.anFabricatie = anFabricatie;
@@ -18,6 +22,9 @@ public class Automobil implements Serializable{
         this.culoare = culoare;
         this.stare = stare;
         this.dotari = dotari;
+        this.sursaEnergie = sursaEnergie;
+        this.transimisie = transimisie;
+        this.conditie = conditie;
     }
 
     public Automobil()
@@ -28,8 +35,55 @@ public class Automobil implements Serializable{
         this.kilometraj = 14000;
         this.culoare = "Gri";
         this.stare = "Neavariata";
+        this.sursaEnergie="Benzina";
+        this.transimisie = "Automata";
+        this.conditie = 5;
     }
 
+
+    protected Automobil(Parcel in) {
+        marca = in.readString();
+        model = in.readString();
+        anFabricatie = in.readInt();
+        kilometraj = in.readInt();
+        culoare = in.readString();
+        stare = in.readString();
+        dotari = in.createStringArrayList();
+        sursaEnergie = in.readString();
+        transimisie = in.readString();
+        conditie = in.readFloat();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(marca);
+        dest.writeString(model);
+        dest.writeInt(anFabricatie);
+        dest.writeInt(kilometraj);
+        dest.writeString(culoare);
+        dest.writeString(stare);
+        dest.writeStringList(dotari);
+        dest.writeString(sursaEnergie);
+        dest.writeString(transimisie);
+        dest.writeFloat(conditie);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Automobil> CREATOR = new Creator<Automobil>() {
+        @Override
+        public Automobil createFromParcel(Parcel in) {
+            return new Automobil(in);
+        }
+
+        @Override
+        public Automobil[] newArray(int size) {
+            return new Automobil[size];
+        }
+    };
 
     public String getMarca() {
         return marca;
@@ -87,6 +141,30 @@ public class Automobil implements Serializable{
         this.dotari = dotari;
     }
 
+    public String getSursaEnergie() {
+        return sursaEnergie;
+    }
+
+    public void setSursaEnergie(String sursaEnergie) {
+        this.sursaEnergie = sursaEnergie;
+    }
+
+    public String getTransimisie() {
+        return transimisie;
+    }
+
+    public void setTransimisie(String transimisie) {
+        this.transimisie = transimisie;
+    }
+
+    public float getConditie() {
+        return conditie;
+    }
+
+    public void setConditie(float conditie) {
+        this.conditie = conditie;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Automobil{");
@@ -97,6 +175,9 @@ public class Automobil implements Serializable{
         sb.append(", culoare='").append(culoare).append('\'');
         sb.append(", stare='").append(stare).append('\'');
         sb.append(", dotari='").append(dotari).append('\'');
+        sb.append(", sursaEnergie='").append(sursaEnergie).append('\'');
+        sb.append(", transmisie='").append(transimisie).append('\'');
+        sb.append(", conditie='").append(conditie).append('\'');
         sb.append('}');
         return sb.toString();
     }

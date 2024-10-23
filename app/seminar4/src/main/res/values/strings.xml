@@ -8,11 +8,12 @@
     <string-array name="sursaEnergie">
         <item>Benzina</item>
         <item>Motorina</item>
-        <item>Eelctric</item>
+        <item>Electric</item>
         <item>Hibrid</item>
         <item>GPL</item>
     </string-array>
-    <string name="transmisie">Automata</string>
+    <string name="transmisieOn">Automata</string>
+    <string name="transmisieOff">Manuala</string>
     <string name="faraAvarii">Neavariata</string>
     <string name="avarii">Avariata</string>
 </resources>

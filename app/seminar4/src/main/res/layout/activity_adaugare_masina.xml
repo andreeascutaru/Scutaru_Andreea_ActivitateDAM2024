@@ -172,6 +172,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:entries="@array/sursaEnergie"
             android:id="@+id/sursaEnergie">
         </Spinner>
     </LinearLayout>
@@ -189,7 +190,9 @@
             android:id="@+id/transmisie"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/transmisie" />
+            android:hint="Bifati daca transmisia este automata"
+            android:textOn="@string/transmisieOn"
+            android:textOff="@string/transmisieOff"/>
     </LinearLayout>
 
     <LinearLayout
@@ -203,7 +206,7 @@
             android:text = "\nConditia vehiculului: ">
         </TextView>
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/conditie"
             android:layout_width="wrap_content"
             android:layout_height="50dp" />
     </LinearLayout>
