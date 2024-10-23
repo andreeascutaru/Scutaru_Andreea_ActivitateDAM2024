@@ -1,21 +1,23 @@
 package com.example.seminar4;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Automobil {
+public class Automobil implements Serializable{
     private String marca;
     private String model;
     private int anFabricatie;
     private int kilometraj;
     private String culoare;
-
-    private String tipAsigurare;
-
-    public Automobil(String marca, String model, int anFabricatie, int kilometraj, String culoare, String tipAsigurare) {
+    private String stare;
+    private ArrayList<String> dotari;
+    public Automobil(String marca, String model, int anFabricatie, int kilometraj, String culoare, String stare, ArrayList<String> dotari) {
         this.marca = marca;
         this.model = model;
         this.anFabricatie = anFabricatie;
         this.kilometraj = kilometraj;
         this.culoare = culoare;
-        this.tipAsigurare = tipAsigurare;
+        this.stare = stare;
+        this.dotari = dotari;
     }
 
     public Automobil()
@@ -25,7 +27,7 @@ public class Automobil {
         this.anFabricatie = 2023;
         this.kilometraj = 14000;
         this.culoare = "Gri";
-        this.tipAsigurare = "RCA+CASCO";
+        this.stare = "Neavariata";
     }
 
 
@@ -69,12 +71,20 @@ public class Automobil {
         this.culoare = culoare;
     }
 
-    public String getTipAsigurare() {
-        return tipAsigurare;
+    public String getStare() {
+        return stare;
     }
 
-    public void setTipAsigurare(String tipAsigurare) {
-        this.tipAsigurare = tipAsigurare;
+    public void setStare(String stare) {
+        this.stare = stare;
+    }
+
+    public ArrayList<String> getDotari() {
+        return dotari;
+    }
+
+    public void setDotari(ArrayList<String> dotari) {
+        this.dotari = dotari;
     }
 
     @Override
@@ -85,10 +95,12 @@ public class Automobil {
         sb.append(", anFabricatie=").append(anFabricatie);
         sb.append(", kilometraj=").append(kilometraj);
         sb.append(", culoare='").append(culoare).append('\'');
-        sb.append(", tipAsigurare='").append(tipAsigurare).append('\'');
+        sb.append(", stare='").append(stare).append('\'');
+        sb.append(", dotari='").append(dotari).append('\'');
         sb.append('}');
         return sb.toString();
     }
 }
+
 
 

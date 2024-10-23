@@ -32,5 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(it, 403);
             }
         });
+
+        Intent it = getIntent();
+        Automobil automobil = (Automobil) it.getSerializableExtra("automobil");
     }
 }

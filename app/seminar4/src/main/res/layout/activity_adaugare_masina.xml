@@ -21,6 +21,7 @@
             android:id="@+id/marcaET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:inputType="text"
             android:hint="Introduceti marca masinii">
         </EditText>
     </LinearLayout>
@@ -38,6 +39,7 @@
             android:id="@+id/modelET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:inputType="text"
             android:hint="Introduceti modelul masinii">
         </EditText>
     </LinearLayout>
@@ -55,8 +57,8 @@
             android:id="@+id/anFabricatieET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:hint="Introduceti anul de fabricatie al masinii">
-        </EditText>
+            android:inputType="numberSigned"
+            android:hint="Introduceti anul de fabricatie al masinii"/>
     </LinearLayout>
 
     <LinearLayout
@@ -72,6 +74,7 @@
             android:id="@+id/kilometrajET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:inputType="numberSigned"
             android:hint="Introduceti kilometrajul masinii">
         </EditText>
     </LinearLayout>
@@ -89,6 +92,7 @@
             android:id="@+id/culoareET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:inputType="text"
             android:hint="Introduceti culoarea masinii">
         </EditText>
     </LinearLayout>
@@ -98,28 +102,120 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text = "Selectati tipul asigurarii: ">
+            android:layout_height="50dp"
+            android:text = "\nStarea masinii: ">
         </TextView>
-        <RadioButton
-            android:id="@+id/radioButton"
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RCA" />
+            android:orientation="horizontal"
+            android:id="@+id/stare">
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/faraAvarii"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RCA+Casco" />
+            android:text="@string/faraAvarii" />
+        <RadioButton
+            android:id="@+id/avarii"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/avarii" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Selectati dotarile masinii: ">
+        </TextView>
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <CheckBox
+        android:id="@+id/incalzireScaune"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/incalzireScaune" />
+    <CheckBox
+        android:id="@+id/senzori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/senzori" />
+
+    <CheckBox
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Sursa de energie a masinii: ">
+        </TextView>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/sursaEnergie">
+        </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Transmisia masinii: ">
+        </TextView>
+        <Switch
+            android:id="@+id/transmisie"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/transmisie" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:text = "\nConditia vehiculului: ">
+        </TextView>
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
     </LinearLayout>
 
     <Button
+        android:id="@+id/adaugatiMasina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="left"
-        android:id="@+id/adaugatiMasina"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/adaugatiMasina" />
+
 
 
 
