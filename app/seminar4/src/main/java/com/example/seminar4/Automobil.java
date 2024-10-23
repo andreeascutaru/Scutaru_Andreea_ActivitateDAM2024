@@ -10,7 +10,10 @@ public class Automobil implements Serializable{
     private String culoare;
     private String stare;
     private ArrayList<String> dotari;
-    public Automobil(String marca, String model, int anFabricatie, int kilometraj, String culoare, String stare, ArrayList<String> dotari) {
+    private String sursaEnergie;
+    private String transimisie;
+    private float conditie;
+    public Automobil(String marca, String model, int anFabricatie, int kilometraj, String culoare, String stare, ArrayList<String> dotari, String sursaEnergie, String transimisie, float conditie) {
         this.marca = marca;
         this.model = model;
         this.anFabricatie = anFabricatie;
@@ -18,6 +21,9 @@ public class Automobil implements Serializable{
         this.culoare = culoare;
         this.stare = stare;
         this.dotari = dotari;
+        this.sursaEnergie = sursaEnergie;
+        this.transimisie = transimisie;
+        this.conditie = conditie;
     }
 
     public Automobil()
@@ -28,6 +34,9 @@ public class Automobil implements Serializable{
         this.kilometraj = 14000;
         this.culoare = "Gri";
         this.stare = "Neavariata";
+        this.sursaEnergie="Benzina";
+        this.transimisie = "Automata";
+        this.conditie = 5;
     }
 
 
@@ -87,6 +96,30 @@ public class Automobil implements Serializable{
         this.dotari = dotari;
     }
 
+    public String getSursaEnergie() {
+        return sursaEnergie;
+    }
+
+    public void setSursaEnergie(String sursaEnergie) {
+        this.sursaEnergie = sursaEnergie;
+    }
+
+    public String getTransimisie() {
+        return transimisie;
+    }
+
+    public void setTransimisie(String transimisie) {
+        this.transimisie = transimisie;
+    }
+
+    public float getConditie() {
+        return conditie;
+    }
+
+    public void setConditie(float conditie) {
+        this.conditie = conditie;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Automobil{");
@@ -97,6 +130,9 @@ public class Automobil implements Serializable{
         sb.append(", culoare='").append(culoare).append('\'');
         sb.append(", stare='").append(stare).append('\'');
         sb.append(", dotari='").append(dotari).append('\'');
+        sb.append(", sursaEnergie='").append(sursaEnergie).append('\'');
+        sb.append(", transmisie='").append(transimisie).append('\'');
+        sb.append(", conditie='").append(conditie).append('\'');
         sb.append('}');
         return sb.toString();
     }
