@@ -181,6 +181,16 @@ public class Automobil implements Parcelable {
         sb.append('}');
         return sb.toString();
     }
+
+    public String getDotariConcatenate(){
+        StringBuilder sb = new StringBuilder();
+        while(dotari!=null) {
+            for (String dotare : dotari) {
+                sb.append(dotare).append(", ");
+            }
+        }
+        return sb.toString();
+    }
 }
 
 

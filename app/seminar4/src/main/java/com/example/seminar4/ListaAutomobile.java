@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,6 +19,9 @@ import java.util.List;
 
 public class ListaAutomobile extends AppCompatActivity {
 
+    private List<Automobil> automobile = null;
+    private int idModificat = 0;
+    private AutomobilAdapter adapter = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,17 +34,23 @@ public class ListaAutomobile extends AppCompatActivity {
         });
 
         Intent it = getIntent();
-        List<Automobil> automobile = it.getParcelableArrayListExtra("automobile");
+        automobile = it.getParcelableArrayListExtra("automobile");
 
         ListView lv = findViewById(R.id.automobileLV);
 
-        ArrayAdapter<Automobil> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, automobile);
-        lv.setAdapter(adapter);
+        //ArrayAdapter<Automobil> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, automobile);
+        //lv.setAdapter(adapter);
 
+        adapter = new AutomobilAdapter(automobile, getApplicationContext(), R.layout.date_introduse);
+        lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(ListaAutomobile.this, automobile.get(i).toString(), Toast.LENGTH_LONG).show();
+                Intent intentModifica = new Intent(getApplicationContext(), AdaugareMasina.class);
+                intentModifica.putExtra("automobil", automobile.get(i));
+                idModificat=i;
+                startActivityForResult(intentModifica, 209);
+                Toast.makeText(getApplicationContext(), automobile.get(i).toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -52,5 +62,16 @@ public class ListaAutomobile extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            if(requestCode==209){
+                automobile.set(idModificat, data.getParcelableExtra("automobile"));
+                adapter.notifyDataSetChanged();
+            }
+        }
     }
 }

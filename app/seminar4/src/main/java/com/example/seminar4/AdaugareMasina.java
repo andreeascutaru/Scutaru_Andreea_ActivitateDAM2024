@@ -33,15 +33,67 @@ public class AdaugareMasina extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Spinner spSursaEnergie = findViewById(R.id.sursaEnergie);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                AdaugareMasina.this, // Specifici contextul activității
-                R.array.sursaEnergie,
-                android.R.layout.simple_spinner_item
-        );
+        //aici aveam aia cu spinner
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spSursaEnergie.setAdapter(adapter);
+        Intent intent= getIntent();
+        if(intent.hasExtra("automobil")){
+            EditText etMarca = findViewById(R.id.marcaET);
+            String marca = etMarca.getText().toString();
+
+            EditText etModel = findViewById(R.id.modelET);
+            String model = etModel.getText().toString();
+
+            EditText etAnFabricatie = findViewById(R.id.anFabricatieET);
+            int anFabricatie = Integer.parseInt(etAnFabricatie.getText().toString());
+
+            EditText etKilometraj = findViewById(R.id.kilometrajET);
+            int kilometraj = Integer.parseInt(etKilometraj.getText().toString());
+
+            EditText etCuloare = findViewById(R.id.culoareET);
+            String culoare = etCuloare.getText().toString();
+
+            RadioGroup rgStare = findViewById(R.id.stare);
+            int idSelectat = rgStare.getCheckedRadioButtonId();
+
+            String stare = "";
+            if(idSelectat == R.id.faraAvarii)
+            {RadioButton rbNeavariat = findViewById(R.id.faraAvarii);
+                stare = rbNeavariat.getText().toString();}
+            else
+            {
+                if(idSelectat == R.id.avarii)
+                {
+                    RadioButton rbAvariat = findViewById(R.id.avarii);
+                    stare = rbAvariat.getText().toString();
+                }
+            }
+
+            ArrayList<String> dotari = new ArrayList<>();
+            CheckBox cbIncalzireScaune = findViewById(R.id.incalzireScaune);
+            CheckBox cbSenzori = findViewById(R.id.senzori);
+            CheckBox cbCamera = findViewById(R.id.camera);
+            if(cbIncalzireScaune.isChecked())
+                dotari.add(cbIncalzireScaune.getText().toString());
+            if(cbSenzori.isChecked())
+                dotari.add(cbSenzori.getText().toString());
+            if(cbCamera.isChecked())
+                dotari.add(cbCamera.getText().toString());
+
+            Spinner spSursaEnergie = findViewById(R.id.sursaEnergie);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(AdaugareMasina.this, R.array.sursaEnergie, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spSursaEnergie.setAdapter(adapter);
+            String sursaEnergie = spSursaEnergie.getSelectedItem().toString();
+
+            Switch swTransmisie = findViewById((R.id.transmisie));
+            String transmisie = "";
+            if(swTransmisie.isChecked())
+                transmisie = swTransmisie.getTextOn().toString();
+            else
+                transmisie = swTransmisie.getTextOff().toString();
+            RatingBar rbConditie = findViewById(R.id.conditie);
+            float conditie = rbConditie.getRating();
+        }
 
         Button btnAdaugare = findViewById(R.id.adaugatiMasina);
         btnAdaugare.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +140,13 @@ public class AdaugareMasina extends AppCompatActivity {
                     dotari.add(cbSenzori.getText().toString());
                 if(cbCamera.isChecked())
                     dotari.add(cbCamera.getText().toString());
+
+                Spinner spSursaEnergie = findViewById(R.id.sursaEnergie);
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(AdaugareMasina.this, R.array.sursaEnergie, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spSursaEnergie.setAdapter(adapter);
                 String sursaEnergie = spSursaEnergie.getSelectedItem().toString();
+
                 Switch swTransmisie = findViewById((R.id.transmisie));
                 String transmisie = "";
                 if(swTransmisie.isChecked())
