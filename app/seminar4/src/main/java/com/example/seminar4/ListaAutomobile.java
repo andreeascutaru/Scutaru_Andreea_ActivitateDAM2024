@@ -69,7 +69,7 @@ public class ListaAutomobile extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK){
             if(requestCode==209){
-                automobile.set(idModificat, data.getParcelableExtra("automobile"));
+                automobile.set(idModificat, data.getParcelableExtra("automobil"));
                 adapter.notifyDataSetChanged();
             }
         }

@@ -35,6 +35,7 @@ public class Automobil implements Parcelable {
         this.kilometraj = 14000;
         this.culoare = "Gri";
         this.stare = "Neavariata";
+        this.dotari = new ArrayList<>();
         this.sursaEnergie="Benzina";
         this.transimisie = "Automata";
         this.conditie = 5;
@@ -184,7 +185,7 @@ public class Automobil implements Parcelable {
 
     public String getDotariConcatenate(){
         StringBuilder sb = new StringBuilder();
-        while(dotari!=null) {
+        if(dotari!=null) {
             for (String dotare : dotari) {
                 sb.append(dotare).append(", ");
             }
