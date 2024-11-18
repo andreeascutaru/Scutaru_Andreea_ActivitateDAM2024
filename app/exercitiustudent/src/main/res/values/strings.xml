@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ExercitiuStudent</string>
+    <string name="formular">Formular</string>
+    <string name="lista_studenti">Lista studenti</string>
+    <string name="nume">Nume</string>
+    <string name="numele">Numele</string>
+    <string name="formular_adaugare_studenti">Formular adaugare studenti</string>
+    <string name="varsta">Varsta</string>
+    <string name="sexul">Sexul</string>
+    <string name="feminin">Feminin</string>
+    <string name="masculin">masculin</string>
+    <string name="specializare">Specializare</string>
+    <string name="integralistu">Integralistu</string>
+    <string name="licenta">Licenta</string>
+    <string name="fara_licenta">Fara Licenta</string>
+    <string name="venitul">Venitul</string>
+    <string name="data_nasterii">Data Nasterii</string>
+    <string name="adauga_student">Adauga Student</string>
+    <string-array name="specializareSP">
+        <item>Informatica Economica</item>
+        <item>Cibernetica Economica</item>
+        <item>Statistica</item>
+    </string-array>
+</resources>

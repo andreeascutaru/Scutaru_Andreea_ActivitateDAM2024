@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/marcaTV"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/anFabricatieTV"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+    </TextView>
+
+        <TextView
+            android:id="@+id/stareTV"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+        </TextView>
+        <TextView
+            android:id="@+id/dotariTV"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+        </TextView>
+        <TextView
+            android:id="@+id/sursaEnergieTV"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+        </TextView>
+        <TextView
+            android:id="@+id/transmisieTV"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+        </TextView>
+        <TextView
+            android:id="@+id/conditieTV"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

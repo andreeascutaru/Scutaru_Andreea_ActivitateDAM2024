@@ -150,11 +150,11 @@ public class Automobil implements Parcelable {
         this.sursaEnergie = sursaEnergie;
     }
 
-    public String getTransimisie() {
+    public String getTransmisie() {
         return transimisie;
     }
 
-    public void setTransimisie(String transimisie) {
+    public void setTransmisie(String transimisie) {
         this.transimisie = transimisie;
     }
 
