@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormularAdaugare"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/formular_adaugare_studenti"
+                android:layout_gravity="center_horizontal">
+            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nume">
+                </TextView>
+                <EditText
+                    android:id="@+id/numeEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:hint="@string/numele"
+                    android:inputType="text">
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/varsta">
+                </TextView>
+                <EditText
+                    android:id="@+id/varstaEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:hint="@string/varsta"
+                    android:inputType="number">
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sexul">
+                </TextView>
+                <RadioGroup
+                    android:id="@+id/sexRG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/femininRB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feminin">
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/masculinRB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/masculin">
+                    </RadioButton>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/specializare">
+                </TextView>
+                <Spinner
+                    android:id="@+id/specializareSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:entries="@array/specializareSP">
+                </Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/integralistu">
+                </TextView>
+                <CheckBox
+                    android:id="@+id/integralistCB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/integralistu">
+                </CheckBox>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/licenta">
+                </TextView>
+                <Switch
+                    android:id="@+id/licentaSW"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:textOn="@string/licenta"
+                    android:textOff="@string/fara_licenta">
+                </Switch>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/venitul">
+                </TextView>
+                <RatingBar
+                    android:id="@+id/venitRB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </RatingBar>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/data_nasterii">
+                </TextView>
+                <DatePicker
+                    android:id="@+id/dataNasteriiDP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </DatePicker>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAdaugare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adauga_student"
+                android:layout_gravity="center_horizontal">
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
+
+<!--    private String nume;//editText-->
+<!--    private int varsta;//editText-->
+<!--    private String sex;//RadioButton-->
+<!--    private String specializare;//Spinner-->
+<!--    private boolean integralist;//CheckBox-->
+<!--    private boolean licenta;//Switch-->
+<!--    private float venit;//RatingBar-->
+<!--    private Date dataNasterii;//DatePicker-->

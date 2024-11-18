@@ -61,7 +61,7 @@ public class AutomobilAdapter extends BaseAdapter {
         stareTV.setText(automobil.getStare());
         dotariTV.setText(automobil.getDotariConcatenate());
         sursaEnergieTV.setText(automobil.getSursaEnergie());
-        transmisieTV.setText(automobil.getTransimisie());
+        transmisieTV.setText(automobil.getTransmisie());
         conditieTV.setText(String.valueOf(automobil.getConditie()));
 
         return v;

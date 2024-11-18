@@ -9,13 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Scutaru_Andreea_seminarDAM">
         <activity
-            android:name=".ListaImagini"
+            android:name=".ListaMasini"
             android:exported="false" />
         <activity
-            android:name=".ListaAutomobile"
-            android:exported="false" />
-        <activity
-            android:name=".AdaugareMasina"
+            android:name=".Adaugare"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

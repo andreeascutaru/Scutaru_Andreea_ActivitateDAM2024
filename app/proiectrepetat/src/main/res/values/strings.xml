@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Proiectrepetat</string>
+    <string name="btnPrincipal">Apasati aici</string>
+    <string name="tvMarca">Introduceti marca</string>
+    <string name="tvAnFabricatie">Introduceti anul fabricatiei</string>
+    <string name="tvstare">Selectati starea</string>
+    <string name="tvDotari">Selectati dotarile</string>
+    <string name="tvSursaEnergie">Selectati sursa de energie</string>
+    <string name="tvTransmisie">Bifati daca are transmisie automata</string>
+    <string name="tvConditie">Conditia</string>
+    <string name="neavariata">Neavariata</string>
+    <string name="avariata">Avariata</string>
+    <string name="camera">Camera</string>
+    <string name="senzori">Senzori</string>
+    <string-array name="sursaEnergie">
+        <item>Benzina</item>
+        <item>Motorina</item>
+        <item>Electric</item>
+        <item>Hibrid</item>
+        <item>GPL</item>
+    </string-array>
+    <string name="switchOn">Automata</string>
+    <string name="switchOff">Manuala</string>
+    <string name="btnAdaugare">Adaugati masina</string>
+    <string name="btnLista">Lista masini</string>
+</resources>

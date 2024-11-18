@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Seminar4</string>
-    <string name = "apasatiAici">Apasati aici</string>
-    <string name = "adaugatiMasina">Adaugati masina</string>
-    <string name = "incalzireScaune">Incalzire in scaune</string>
-    <string name = "senzori">Senzori</string>
-    <string name = "camera">Camera</string>
+    <string name="apasatiAici">Apasati aici</string>
+    <string name="adaugatiMasina">Adaugati masina</string>
+    <string name="incalzireScaune">Incalzire in scaune</string>
+    <string name="senzori">Senzori</string>
+    <string name="camera">Camera</string>
     <string-array name="sursaEnergie">
         <item>Benzina</item>
         <item>Motorina</item>

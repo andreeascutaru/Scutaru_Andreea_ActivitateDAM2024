@@ -1,4 +1,4 @@
-package com.example.seminar4;
+package com.example.proiectrepetat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,49 +17,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private List<Masina> masini= new ArrayList<>();
 
-    private List<Automobil> automobile = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        automobile = new ArrayList<>();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        Button btn = findViewById(R.id.apasatiAici);
+        Button btn = findViewById(R.id.btnPrincipal);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(), AdaugareMasina.class);
+                Intent it = new Intent(getApplicationContext(), Adaugare.class);
                 startActivityForResult(it, 403);
             }
         });
 
-        Button btnLista = findViewById(R.id.butonListView);
+        Button btnLista = findViewById(R.id.btnLista);
         btnLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(), ListaAutomobile.class);
-                it.putParcelableArrayListExtra("automobile", (ArrayList<? extends Parcelable>) automobile);
+                Intent it = new Intent(getApplicationContext(), ListaMasini.class);
+                it.putParcelableArrayListExtra("masina", (ArrayList<? extends Parcelable>)masini);
                 startActivity(it);
             }
         });
-    }
 
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==403){
             if(resultCode==RESULT_OK){
-                Automobil automobil= data.getParcelableExtra("automobil");
-                automobile.add(automobil);
+                Masina masina = data.getParcelableExtra("masina");
+                masini.add(masina);
             }
         }
     }
+
 }
