@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".City_Weather_Activity"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/introduceti_un_oras">
+    </TextView>
+    <EditText
+        android:id="@+id/orasET"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/introduceti_oras">
+    </EditText>
+
+</LinearLayout>
+
+    <Button
+        android:id="@+id/butonVreme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vremea_orasului">
+    </Button>
+
+    <TextView
+        android:id="@+id/OrasVremeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+</LinearLayout>

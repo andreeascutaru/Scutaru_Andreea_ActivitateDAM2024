@@ -16,4 +16,8 @@
     <string name="transmisieOff">Manuala</string>
     <string name="faraAvarii">Neavariata</string>
     <string name="avarii">Avariata</string>
+    <string name="orasul_si_vremea">Orasul si vremea</string>
+    <string name="introduceti_un_oras">Introduceti un oras:</string>
+    <string name="vremea_orasului">Vremea orasului</string>
+    <string name="introduceti_oras">Oras</string>
 </resources>

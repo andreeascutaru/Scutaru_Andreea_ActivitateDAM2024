@@ -9,6 +9,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Scutaru_Andreea_seminarDAM">
         <activity
+            android:name=".City_Weather_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".WebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListaImagini"
             android:exported="false" />
         <activity

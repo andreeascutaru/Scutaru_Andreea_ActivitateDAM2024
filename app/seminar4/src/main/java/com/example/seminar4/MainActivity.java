@@ -50,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        Button btnOV = findViewById(R.id.butonActivitateOras);
+        btnOV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), City_Weather_Activity.class);
+                startActivity(it);
+            }
+        });
     }
 
     @Override
