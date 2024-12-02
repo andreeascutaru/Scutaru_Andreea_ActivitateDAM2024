@@ -40,13 +40,4 @@ public class ImagineDomeniu {
         this.link = link;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("ImagineDomeniu{");
-        sb.append("textAfisat='").append(textAfisat).append('\'');
-        sb.append(", imagine=").append(imagine);
-        sb.append(", link='").append(link).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
 }

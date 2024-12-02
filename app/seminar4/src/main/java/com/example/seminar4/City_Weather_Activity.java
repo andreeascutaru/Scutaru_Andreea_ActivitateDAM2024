@@ -61,7 +61,7 @@ public class City_Weather_Activity extends AppCompatActivity {
                             while((line = bufferedReader.readLine())!=null){
                                 response.append(line);
                             }
-                            JSONArray vector = new JSONArray(response.toString());
+                            //JSONArray vector = new JSONArray(response.toString());
                         } catch (MalformedURLException e) {
                             throw new RuntimeException(e);
                         } catch (IOException e) {

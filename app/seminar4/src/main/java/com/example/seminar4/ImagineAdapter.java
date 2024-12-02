@@ -42,9 +42,11 @@ public class ImagineAdapter extends BaseAdapter {
         LayoutInflater  inflater  = LayoutInflater.from(ctx);
         View view = inflater.inflate(imagine_layout, parent, false);
 
-        ImagineDomeniu imagine = (ImagineDomeniu) getItem(position);
+
         ImageView img = view.findViewById(R.id.imagineIV);
         TextView text = view.findViewById(R.id.textAfisatTV);
+
+        ImagineDomeniu imagine = (ImagineDomeniu) getItem(position);
 
         img.setImageBitmap(imagine.getImagine());
         text.setText(imagine.getTextAfisat());

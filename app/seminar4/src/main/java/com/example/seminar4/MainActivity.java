@@ -51,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnImagini = findViewById(R.id.btnListaImagini);
+        btnImagini.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), ListaImagini.class);
+                startActivity(it);
+            }
+        });
+
         Button btnOV = findViewById(R.id.butonActivitateOras);
         btnOV.setOnClickListener(new View.OnClickListener() {
             @Override

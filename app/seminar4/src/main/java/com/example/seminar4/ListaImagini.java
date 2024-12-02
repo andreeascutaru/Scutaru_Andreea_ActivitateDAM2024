@@ -28,8 +28,8 @@ import java.util.concurrent.Executors;
 
 public class ListaImagini extends AppCompatActivity {
 
-    List<Bitmap> listaImagini = null;
-    List<ImagineDomeniu> imagini = new ArrayList<>();
+
+    List<ImagineDomeniu> imagini = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +41,9 @@ public class ListaImagini extends AppCompatActivity {
             return insets;
         });
 
-        listaImagini = new ArrayList<>();
+        List <Bitmap> listaImagini = new ArrayList<>();
         List<String> linkuriImagini = new ArrayList<>();
+
         linkuriImagini.add("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Ferrari_F8_Tributo_Genf_2019_1Y7A5665.jpg/1200px-Ferrari_F8_Tributo_Genf_2019_1Y7A5665.jpg");
         linkuriImagini.add("https://static.automarket.ro/img/auto_resized/db/article/119/219/792393l-1000x640-b-677aa986.jpg");
         linkuriImagini.add("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Bugatti_Bolide_Milano.jpg/640px-Bugatti_Bolide_Milano.jpg");
@@ -50,49 +51,57 @@ public class ListaImagini extends AppCompatActivity {
         linkuriImagini.add("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/McLaren_P1.jpg/1200px-McLaren_P1.jpg");
 
         Executor executor = Executors.newSingleThreadExecutor();
-        Handler handler = new Handler(Looper.myLooper());
+        Handler handler = new Handler(Looper.getMainLooper());
 
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                for(String link:linkuriImagini){
-                    HttpURLConnection con = null;
-                    try{
+
+                for (String link : linkuriImagini) {
+                    HttpURLConnection conection = null;
+                    try {
                         URL url = new URL(link);
-                        con = (HttpURLConnection)url.openConnection();
-                        InputStream is = con.getInputStream();
-                        listaImagini.add(BitmapFactory.decodeStream(is));
+                        conection = (HttpURLConnection) url.openConnection();
+                        InputStream inputStream = conection.getInputStream();
+                        listaImagini.add(BitmapFactory.decodeStream(inputStream));
+
                     } catch (MalformedURLException e) {
                         throw new RuntimeException(e);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
-                    }
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            imagini = new ArrayList<>();
-                            imagini.add(new ImagineDomeniu("Ferrari", listaImagini.get(0), "https://en.wikipedia.org/wiki/Ferrari_F8"));
-                            imagini.add(new ImagineDomeniu("Lamborghini", listaImagini.get(1), "https://www.automarket.ro/stiri/acesta-este-noul-lamborghini-temerario-primul-lamborghini-din-istorie-cu-119219.html"));
-                            imagini.add(new ImagineDomeniu("Bugatti", listaImagini.get(2), "https://en.wikipedia.org/wiki/Bugatti_Bolide"));
-                            imagini.add(new ImagineDomeniu("Aston Martin", listaImagini.get(3), "https://www.caranddriver.com/aston-martin/valhalla"));
-                            imagini.add(new ImagineDomeniu("", listaImagini.get(4), "https://en.wikipedia.org/wiki/McLaren_P1"));
-
-                            ListView lv = findViewById(R.id.lvImagini);
-                            ImagineAdapter adapter = new ImagineAdapter(imagini, getApplicationContext(), R.layout.imagine_layout);
-                            lv.setAdapter(adapter);
+                    } finally {
+                        if (conection != null) {
+                            conection.disconnect();
                         }
-                    });
+                    }
                 }
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        imagini = new ArrayList<>();
+                        imagini.add(new ImagineDomeniu("Ferrari", listaImagini.get(0), "https://en.wikipedia.org/wiki/Ferrari_F8"));
+                        imagini.add(new ImagineDomeniu("Lamborghini", listaImagini.get(1), "https://www.automarket.ro/stiri/acesta-este-noul-lamborghini-temerario-primul-lamborghini-din-istorie-cu-119219.html"));
+                        imagini.add(new ImagineDomeniu("Bugatti", listaImagini.get(2), "https://en.wikipedia.org/wiki/Bugatti_Bolide"));
+                        imagini.add(new ImagineDomeniu("Aston Martin", listaImagini.get(3), "https://www.caranddriver.com/aston-martin/valhalla"));
+                        imagini.add(new ImagineDomeniu("", listaImagini.get(4), "https://en.wikipedia.org/wiki/McLaren_P1"));
+
+                        ListView lv = findViewById(R.id.lvImagini);
+                        ImagineAdapter adapter = new ImagineAdapter(imagini, getApplicationContext(), R.layout.imagine_layout);
+                        lv.setAdapter(adapter);
+                    }
+                });
             }
         });
-        ListView lvImg = findViewById(R.id.lvImagini);
-        lvImg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent it = new Intent(getApplicationContext(), WebViewActivity.class);
-                it.putExtra("link", imagini.get(i).getLink());
-                startActivity(it);
-            }
-        });
+        ListView lv = findViewById(R.id.lvImagini);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent it = new Intent(getApplicationContext(), WebViewActivity.class);
+                        it.putExtra("link", imagini.get(i).getLink());
+                        startActivity(it);
+                    }
+                });
+
+
     }
 }
