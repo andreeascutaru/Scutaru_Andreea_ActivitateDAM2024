@@ -2,6 +2,8 @@ package com.example.seminar4;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,14 +16,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
 
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class ListaAutomobile extends AppCompatActivity {
 
     private List<Automobil> automobile = null;
     private int idModificat = 0;
     private AutomobilAdapter adapter = null;
+    private AutomobilDatabase automobilDatabase = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,16 +40,35 @@ public class ListaAutomobile extends AppCompatActivity {
             return insets;
         });
 
-        Intent it = getIntent();
-        automobile = it.getParcelableArrayListExtra("automobile");
+        //Intent it = getIntent();
+        //automobile = it.getParcelableArrayListExtra("automobile");
 
         ListView lv = findViewById(R.id.automobileLV);
 
         //ArrayAdapter<Automobil> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, automobile);
         //lv.setAdapter(adapter);
 
-        adapter = new AutomobilAdapter(automobile, getApplicationContext(), R.layout.date_introduse);
-        lv.setAdapter(adapter);
+        automobilDatabase = Room.databaseBuilder(this, AutomobilDatabase.class, "AutomobileDB").build();
+
+        Executor executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+        //adapter = new AutomobilAdapter(automobile, getApplicationContext(), R.layout.date_introduse);
+        //lv.setAdapter(adapter);
+
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    automobile = automobilDatabase.getDaoObject().getAutomobile();
+                }finally{
+                    handler.post(() -> {
+                        adapter = new AutomobilAdapter(automobile, getApplicationContext(), R.layout.date_introduse);
+                        lv.setAdapter(adapter);
+                    });
+                }
+            }
+        });
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

@@ -38,7 +38,7 @@ public class AdaugareMasina extends AppCompatActivity {
             return insets;
         });
 
-        database  = Room.databaseBuilder(this, AutomobilDatabase.class, "AutomobilDB").build();
+        database  = Room.databaseBuilder(this, AutomobilDatabase.class, "AutomobileDB").build();
 
         Intent intent= getIntent();
         if(intent.hasExtra("automobil")){

@@ -95,6 +95,22 @@ public class Automobil implements Parcelable {
         }
     };
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTransimisie() {
+        return transimisie;
+    }
+
+    public void setTransimisie(String transimisie) {
+        this.transimisie = transimisie;
+    }
+
     public String getMarca() {
         return marca;
     }
