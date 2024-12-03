@@ -1,9 +1,16 @@
 package com.example.seminar4;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 
+@Entity(tableName = "Automobile")
 public class Automobil implements Parcelable {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String marca;
     private String model;
     private int anFabricatie;
@@ -14,7 +21,7 @@ public class Automobil implements Parcelable {
     private String sursaEnergie;
     private String transimisie;
     private float conditie;
-    public Automobil(String marca, String model, int anFabricatie, int kilometraj, String culoare, String stare, ArrayList<String> dotari, String sursaEnergie, String transimisie, float conditie) {
+    public Automobil( String marca, String model, int anFabricatie, int kilometraj, String culoare, String stare, ArrayList<String> dotari, String sursaEnergie, String transimisie, float conditie) {
         this.marca = marca;
         this.model = model;
         this.anFabricatie = anFabricatie;
@@ -43,6 +50,7 @@ public class Automobil implements Parcelable {
 
 
     protected Automobil(Parcel in) {
+        id = in.readInt();
         marca = in.readString();
         model = in.readString();
         anFabricatie = in.readInt();
@@ -57,6 +65,7 @@ public class Automobil implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(marca);
         dest.writeString(model);
         dest.writeInt(anFabricatie);

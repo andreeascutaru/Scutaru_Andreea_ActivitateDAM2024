@@ -18,11 +18,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class AdaugareMasina extends AppCompatActivity {
 
+    private AutomobilDatabase database = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,7 @@ public class AdaugareMasina extends AppCompatActivity {
             return insets;
         });
 
+        database  = Room.databaseBuilder(this, AutomobilDatabase.class, "AutomobilDB").build();
 
         Intent intent= getIntent();
         if(intent.hasExtra("automobil")){
@@ -133,6 +138,15 @@ public class AdaugareMasina extends AppCompatActivity {
                 RatingBar rbConditie = findViewById(R.id.conditie);
                 float conditie = rbConditie.getRating();
                 Automobil automobil = new Automobil(marca, model, anFabricatie, kilometraj, culoare, stare, dotari, sursaEnergie, transmisie, conditie);
+
+                Executor executor = Executors.newSingleThreadExecutor();
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        database.getDaoObject().insertAutomobil(automobil);
+                    }
+                });
+
                 Intent it = new Intent();
                 it.putExtra("automobil", automobil);
                 setResult(RESULT_OK, it);

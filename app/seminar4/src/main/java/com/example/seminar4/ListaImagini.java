@@ -51,28 +51,24 @@ public class ListaImagini extends AppCompatActivity {
         linkuriImagini.add("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/McLaren_P1.jpg/1200px-McLaren_P1.jpg");
 
         Executor executor = Executors.newSingleThreadExecutor();
-        Handler handler = new Handler(Looper.getMainLooper());
+        Handler handler = new Handler(Looper.myLooper());
 
         executor.execute(new Runnable() {
             @Override
             public void run() {
 
                 for (String link : linkuriImagini) {
-                    HttpURLConnection conection = null;
+                    HttpURLConnection connection = null;
                     try {
                         URL url = new URL(link);
-                        conection = (HttpURLConnection) url.openConnection();
-                        InputStream inputStream = conection.getInputStream();
+                        connection = (HttpURLConnection) url.openConnection();
+                        InputStream inputStream = connection.getInputStream();
                         listaImagini.add(BitmapFactory.decodeStream(inputStream));
 
                     } catch (MalformedURLException e) {
                         throw new RuntimeException(e);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
-                    } finally {
-                        if (conection != null) {
-                            conection.disconnect();
-                        }
                     }
                 }
                 handler.post(new Runnable() {
