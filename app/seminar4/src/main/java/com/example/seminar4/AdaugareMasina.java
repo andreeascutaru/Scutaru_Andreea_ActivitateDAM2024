@@ -20,6 +20,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -38,7 +43,7 @@ public class AdaugareMasina extends AppCompatActivity {
             return insets;
         });
 
-        database  = Room.databaseBuilder(this, AutomobilDatabase.class, "AutomobilDB").build();
+        database  = Room.databaseBuilder(this, AutomobilDatabase.class, "AutomobileDB").build();
 
         Intent intent= getIntent();
         if(intent.hasExtra("automobil")){
@@ -143,6 +148,21 @@ public class AdaugareMasina extends AppCompatActivity {
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
+                        try{
+                            FileOutputStream file;
+                            file = openFileOutput("obiecteFavorite.txt", MODE_PRIVATE);
+                            OutputStreamWriter output = new OutputStreamWriter(file);
+                            BufferedWriter writer = new BufferedWriter(output);
+                            writer.write(automobil.toString());
+                            writer.close();
+                            output.close();
+                            file.close();
+                        } catch (FileNotFoundException e) {
+                            throw new RuntimeException(e);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
                         database.getDaoObject().insertAutomobil(automobil);
                     }
                 });

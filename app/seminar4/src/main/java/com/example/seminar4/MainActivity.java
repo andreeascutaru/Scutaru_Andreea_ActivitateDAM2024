@@ -68,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        Button btnAutomobileFav = findViewById(R.id.btnAutomobileFavorite);
+        btnAutomobileFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), MainActivityAutomobileFavorite.class);
+                startActivity(it);
+            }
+        });
     }
 
     @Override

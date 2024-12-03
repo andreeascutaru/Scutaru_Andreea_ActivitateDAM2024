@@ -37,10 +37,10 @@
         android:text="Lista Automobile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apasatiAici"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.155" />
 
     <Button
         android:id="@+id/butonActivitateOras"
@@ -50,18 +50,33 @@
         android:text="@string/orasul_si_vremea"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butonListView" />
+        app:layout_constraintTop_toBottomOf="@+id/butonListView"
+        app:layout_constraintVertical_bias="0.101" />
 
     <Button
         android:id="@+id/btnListaImagini"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista firme masini de lux"
+        android:text="@string/lista_firme_masini_de_lux"
         app:layout_constraintBottom_toTopOf="@+id/butonActivitateOras"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.618"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butonListView" />
+        app:layout_constraintTop_toBottomOf="@+id/butonListView"
+        app:layout_constraintVertical_bias="0.238" />
+
+    <Button
+        android:id="@+id/btnAutomobileFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/automobile_favorite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/butonActivitateOras"></Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

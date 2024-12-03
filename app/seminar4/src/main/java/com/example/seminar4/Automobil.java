@@ -95,6 +95,22 @@ public class Automobil implements Parcelable {
         }
     };
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTransimisie() {
+        return transimisie;
+    }
+
+    public void setTransimisie(String transimisie) {
+        this.transimisie = transimisie;
+    }
+
     public String getMarca() {
         return marca;
     }
@@ -175,6 +191,12 @@ public class Automobil implements Parcelable {
         this.conditie = conditie;
     }
 
+    public String getKey(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.id);
+        sb.append(this.marca);
+        return sb.toString();
+    }
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Automobil{");
