@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Seminar13</string>
+    <string name="adauga_automobil">Adauga automobil</string>
+    <string name="adaugati_la_favorite">Adaugati la favorite:</string>
+    <string name="marca_masinii">Marca masinii</string>
+    <string name="anul_de_fabricatie">Anul de fabricatie</string>
+    <string name="adagati">Adagati</string>
+    <string name="automobile_online">Automobile online</string>
+    <string name="lista_firebase">Lista Firebase</string>
+</resources>

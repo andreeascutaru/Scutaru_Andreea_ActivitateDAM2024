@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "823201094124",
+    "project_id": "seminar13scutaruandreea",
+    "storage_bucket": "seminar13scutaruandreea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823201094124:android:486ca8702d4b87198c48c9",
+        "android_client_info": {
+          "package_name": "com.example.seminar13"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB945cj5ya4jyci9Pf5phGialAzu876IKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
